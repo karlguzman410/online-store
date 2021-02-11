@@ -3,26 +3,7 @@ import { Grid } from "@material-ui/core";
 import Product from "./Product/Product";
 import useStyles from "./styles";
 
-const products = [
-  {
-    id: 1,
-    name: "Shoes",
-    description: "Running shoes",
-    price: "$10",
-    image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._SwLaDkWHaG-p9nUWpLmVgHaHa%26pid%3DApi&f=1",
-  },
-  {
-    id: 2,
-    name: "Laptop",
-    description: "Gaming laptop",
-    price: "$2000",
-    image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.inckphXYRssjXPMSEvw-rAHaE8%26pid%3DApi&f=1",
-  },
-];
-
-const Products = () => {
+const Products = ({ products, handleAddToCart }) => {
   const classes = useStyles();
 
   return (
@@ -32,7 +13,7 @@ const Products = () => {
         {/* mock products */}
         {products.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <Product product={product} />
+            <Product product={product} handleAddToCart={handleAddToCart} />
           </Grid>
         ))}
       </Grid>
