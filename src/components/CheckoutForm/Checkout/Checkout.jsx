@@ -25,9 +25,9 @@ const Checkout = ({ cart }) => {
   const Confirmation = () => <div>Confirmation</div>;
   const Form = () =>
     activeStep === 0 ? (
-      <AddressForm checkoutToken={checkoutToken} />
+      <AddressForm checkoutToken={checkoutToken} next={next} />
     ) : (
-      <PaymentForm />
+      <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} />
     );
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const Checkout = ({ cart }) => {
           {activeStep === steps.length ? (
             <Confirmation />
           ) : (
-            checkoutToken && <Form next={next} />
+            checkoutToken && <Form />
           )}
         </Paper>
       </main>
