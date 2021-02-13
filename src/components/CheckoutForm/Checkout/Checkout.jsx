@@ -8,12 +8,13 @@ import {
   CircularProgress,
   Divider,
   Button,
+  CssBaseline,
 } from "@material-ui/core";
 import useStyles from "./styles";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 import { commerce } from "../../../lib/commerce";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const steps = ["Shipping address", "Payment details"];
 
@@ -22,6 +23,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setcheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState("");
+  const history = useHistory();
 
   let Confirmation = () =>
     order.customer ? (
@@ -76,7 +78,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         });
         setcheckoutToken(token);
       } catch (error) {
-        console.log(error);
+        history.push("/");
       }
     };
 
@@ -98,6 +100,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   return (
     <>
+      <CssBaseline />
       <div className={classes.toolbar} />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
