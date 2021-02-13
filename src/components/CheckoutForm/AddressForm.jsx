@@ -114,7 +114,12 @@ const AddressForm = ({ checkoutToken, next }) => {
           <Box>
             <Grid container spacing={3}>
               <FormInput required name="address1" label="Address 1" />
-              <FormInput required name="address2" label="Address 2" />
+              <FormInput
+                required
+                name="address2"
+                label="Address 2"
+                defaultValue=" "
+              />
               <FormInput required name="city" label="City" />
               <FormInput required name="zip" label="Zip Code" />
               <Grid item xs={12} sm={6}>
@@ -165,7 +170,7 @@ const AddressForm = ({ checkoutToken, next }) => {
           </Box>
           <br />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Button component={Link} to="/cart" variant="outline">
+            <Button component={Link} to="/cart" variant="outlined">
               Back to Cart
             </Button>
             <Button type="submit" variant="contained" color="primary">
