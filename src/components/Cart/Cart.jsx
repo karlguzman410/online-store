@@ -17,7 +17,7 @@ const Cart = ({
       component={Link}
       to="/"
       variant="subtitle1"
-      classes={classes.link}
+      className={classes.link}
     >
       Your cart is empty. Click to go back to the store!
     </Typography>

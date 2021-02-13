@@ -14,6 +14,7 @@ const FormInput = ({ name, label }) => {
         control={control}
         fullWidth
         name={name}
+        defaultValue=""
         label={label}
       />
     </Grid>
